@@ -54,6 +54,8 @@ void ImgHandler::save()
 
 ImgHandler::~ImgHandler()
 {
-	delete [] resultList;
+	for(QList<QImage*>::iterator it=resultList->begin();it!=resultList->end();it++)
+		delete *it;
+	delete resultList;
 	delete img;
 }
